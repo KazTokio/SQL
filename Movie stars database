@@ -1,0 +1,34 @@
+/* Create table about the people and what they do here */
+create table moviestar (
+    id integer primary key autoincrement,
+    fullname text,
+    age integer);
+
+insert into moviestar(fullname,age) values("Scarlett Johansson",	"37");
+insert into moviestar(fullname,age) values("Emma Watson","32");
+insert into moviestar(fullname,age) values("Tom Cruise","59");
+insert into moviestar(fullname,age) values("Brad Pitt",	"58");
+insert into moviestar(fullname,age) values("Keanu Reeves","57");
+
+create table profile(
+    id integer primary key autoincrement,
+    person_id integer,
+    movie_title text,
+    status text);
+
+insert into profile(person_id,movie_title,status) values (1,"Avengers","Married");
+insert into profile(person_id,movie_title,status) values (1,"Hurry Potter","Married");
+insert into profile(person_id,movie_title,status) values (3,"Top Gun","Married");
+insert into profile(person_id,movie_title,status) values (4,"Fight club","Married");
+insert into profile(person_id,movie_title,status) values (4,"Matrix","single");
+
+/* select movie start name and the title of the movie  */
+select moviestar.fullname,profile.movie_title from moviestar
+    join profile
+        on moviestar.id = profile.id
+    group by moviestar.fullname;
+    
+
+
+
+
